@@ -19,7 +19,6 @@ export default function Question({ options, onAnswerSelected }) {
                 <button
                     key={index}
                     onClick={() => { onAnswerSelected(option); setLoading(true); }}
-                    className="p-3 m-3 bg-blue-500 text-white rounded"
                 >
                     {option}
                 </button>

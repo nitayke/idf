@@ -31,10 +31,10 @@ export default function Quiz({ level }) {
         }
     };
     return (
-        <div className="flex flex-col items-center bg-gray-200">
+        <div>
             {showScore ? (
-                <div className="text-2xl mb-4">
-                    Your score: {score}
+                <div>
+                    הניקוד שלך: {score}/8
                 </div>
             ) : (
                 <Question

@@ -6,14 +6,15 @@ export default function App() {
   const [level, setLevel] = useState("");
 
   return (
-    <div className="p-4 bg-white rounded shadow font-heebo">
-      <h1 className="text-2xl font-bold mb-4">
+    <div>
+      <h1>
         סמלי צה"ל
       </h1>
-      {level ?
-        <Quiz level={level} ></Quiz> :
-        <LevelSelector onSelect={(l) => setLevel(l)}></LevelSelector>
+      {
+        level ?
+          <Quiz level={level} ></Quiz> :
+          <LevelSelector onSelect={(l) => setLevel(l)}></LevelSelector>
       }
-    </div>
+    </div >
   );
 }
