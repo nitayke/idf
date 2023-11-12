@@ -25,4 +25,4 @@ async function getQuestions(level) {
     return questions;
 }
 
-export { getQuestions };
+export { shuffleArray, getQuestions };

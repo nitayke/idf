@@ -14,6 +14,10 @@ export default function Quiz({ level }) {
         })();
     }, []);
 
+    if (!questions.length) {
+        return <h1>טוען נתונים...</h1>;
+    }
+
     const handleAnswerSelected = (option) => {
         if (option === questions[currentQuestionIndex][0]) {
             setScore(score + 1);
@@ -27,7 +31,7 @@ export default function Quiz({ level }) {
         }
     };
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-200">
+        <div className="flex flex-col items-center bg-gray-200">
             {showScore ? (
                 <div className="text-2xl mb-4">
                     Your score: {score}

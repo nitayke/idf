@@ -1,21 +1,29 @@
-function Question({ options, onAnswerSelected }) {
-    if (!options || options.length < 4) {
-        return <h1>not good</h1>
-    }
-    return (
+import { useState } from "react";
+import { shuffleArray } from "../util/fetchData";
+
+export default function Question({ options, onAnswerSelected }) {
+    const [isLoading, setLoading] = useState(true);
+    let shuffledOptions = [...options];
+    shuffleArray(shuffledOptions);
+    return <>
+        {isLoading ?
+            <h1>טוען תמונה...</h1> : null
+        }
         <div>
-            <img src={"https://raw.githubusercontent.com/nitayke/idf/master/public/images/" + options[0].replace('"', "") + ".png"} />
-            {options.map((option, index) => (
+            <img
+                onLoad={() => setLoading(false)}
+                style={{ display: isLoading ? "none" : "block" }}
+                src={"https://raw.githubusercontent.com/nitayke/idf/master/public/images/" + options[0].replace(/"/g, "") + ".png"}
+            />
+            {shuffledOptions.map((option, index) => (
                 <button
                     key={index}
-                    onClick={() => onAnswerSelected(option)}
-                    className="px-4 py-2 bg-blue-500 text-white rounded"
+                    onClick={() => { onAnswerSelected(option); setLoading(true); }}
+                    className="p-3 m-3 bg-blue-500 text-white rounded"
                 >
                     {option}
                 </button>
             ))}
         </div>
-    );
+    </>;
 }
-
-export default Question;
