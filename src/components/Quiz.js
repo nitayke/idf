@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Question from './Question';
 
-function Quiz({ questions }) {
+function Quiz({ level }) {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);

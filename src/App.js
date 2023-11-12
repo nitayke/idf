@@ -1,23 +1,19 @@
-import Quiz from "./Quiz";
+import { useState } from "react";
+import Quiz from "./components/Quiz";
+import LevelSelector from "./components/LevelSelector";
 
 function App() {
-  const [data, setData] = useState(null);
+  const [level, setLevel] = useState("");
 
-  useEffect(() => {
-    fetch('https://raw.githubusercontent.com/username/repo/branch/filename.json')
-      .then(response => response.json())
-      .then(data => setData(data));
-  }, []);
-
-  if (data === null) {
-    return <div>Loading...</div>;
-  }
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-200">
-      <h1 className="text-4xl mb-8">
+    <div>
+      <h1>
         Logo Quiz
       </h1>
-      <Quiz questions={questions} />
+      {level ?
+        <Quiz level={level}></Quiz> :
+        <LevelSelector onSelect={(l) => setLevel(l)}></LevelSelector>
+      }
     </div>
   );
 }
