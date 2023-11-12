@@ -1,13 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Question from './Question';
+import { getQuestions } from '../util/fetchData';
 
-function Quiz({ level }) {
+export default function Quiz({ level }) {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
+    const [questions, setQuestions] = useState([]);
 
-    const handleAnswerSelected = (isCorrect) => {
-        if (isCorrect) {
+    useEffect(() => {
+        (async function () {
+            setQuestions(await getQuestions(level));
+        })();
+    }, []);
+
+    const handleAnswerSelected = (option) => {
+        if (option === questions[currentQuestionIndex][0]) {
             setScore(score + 1);
         }
 
@@ -18,7 +26,6 @@ function Quiz({ level }) {
             setShowScore(true);
         }
     };
-
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-gray-200">
             {showScore ? (
@@ -27,13 +34,10 @@ function Quiz({ level }) {
                 </div>
             ) : (
                 <Question
-                    question={questions[currentQuestionIndex]}
-                    options={questions[currentQuestionIndex].options}
+                    options={questions[currentQuestionIndex]}
                     onAnswerSelected={handleAnswerSelected}
                 />
             )}
         </div>
     );
 }
-
-export default Quiz;
