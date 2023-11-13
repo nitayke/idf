@@ -19,39 +19,57 @@
           <!-- זה מה שרואים בהתחלה כאילו שבוחרים את הרמה -->
           <div class="levels-btns">
             <button class="choose-level-btn"></button>
-            <button class="choose-level-btn"><p>בינוני</p></button>
-            <button class="choose-level-btn"><p>חיל האוויר</p></button>
-            <button class="choose-level-btn"><p>חיל הים</p></button>
-            <button class="choose-level-btn"><p>סיכות</p></button>
-            <button class="choose-level-btn"><p>כל הסמלים</p></button>
+            <button class="choose-level-btn"></button>
+            <button class="choose-level-btn"></button>
+            <button class="choose-level-btn"></button>
+            <button class="choose-level-btn"></button>
+            <button class="choose-level-btn"></button>
           </div>
         </div>
 
         <!-- זה אחרי שבוחרים רמה -->
         <div class="content-container" hidden>
           <!-- זה בהתחלה -->
-          <h1>טוען נתונים...</h1>
-          <!-- זה אחרי שנגמרות 8 השאלות -->
-          <div>הניקוד שלך: {score}/8</div>
+          <!-- <h1>טוען נתונים...</h1>
+          הוספתי פה LOADER במקום -->
 
-          <!-- זה לפני שנגמרות 8 השאלות -->
-          <div>
-            <h1>טוען תמונה...</h1>
+          <!-- זה אחרי שנגמרות 8 השאלות -->
+          <div class="after-game">
+            <h3>הניקוד שלך: {score}/8</h3>
             <div>
-              <!-- זה אחרי שהתמונה נטענת -->
-              <img
-                src="https://raw.githubusercontent.com/nitayke/idf/master/public/images/אגף המודיעין.png"
-              />
-              <!-- דוגמה במיוחד בשבילך -->
-              <button>אגף המודיעין</button>
-              <button>אגף כוח אדם</button>
-              <button>אגף התקשוב והגנה בסב"ר</button>
-              <button>אגף המבצעים</button>
+              <p>אהבת?</p>
+              <button id="share-btn">שתף לחבריך</button>
             </div>
           </div>
         </div>
-        <footer>תוכן</footer>
+        <div class="content-container" hidden>
+          <!-- זה לפני שנגמרות 8 השאלות -->
+          <div>
+            <!-- <h1>טוען תמונה...</h1>
+            גם פה אפשר להשתמש בלואדר -->
+            <div class="game">
+              <!-- זה אחרי שהתמונה נטענת -->
+              <img
+                src="https://github.com/nitayke/idf/blob/master/public/eyal-images/%D7%A1%D7%99%D7%9B%D7%95%D7%AA.png?raw=true"
+              />
+              <!-- דוגמה במיוחד בשבילך -->
+              <button class="answer-btn">אגף המודיעין</button>
+              <button class="answer-btn">אגף כוח אדם</button>
+              <button class="answer-btn">אגף התקשוב והגנה בסב"ר</button>
+              <button class="answer-btn">אגף המבצעים</button>
+            </div>
+          </div>
+        </div>
+        <footer>© נתאי קסנר</footer>
       </div>
     </div>
+    <div class="loader-container">
+      <div class="loader-circle" hidden></div>
+      <div class="loader-line" hidden>
+        <div class="loader-clock" hidden></div>
+      </div>
+      <div class="loader-text" hidden>הכנס טקסט...</div>
+    </div>
+    <div class="dark-screen" hidden></div>
   </body>
 </html>
