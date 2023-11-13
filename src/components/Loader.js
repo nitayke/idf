@@ -7,6 +7,5 @@ export default function Loader({ text }) {
             </div>
             <div className="loader-text">{text}</div>
         </div>
-        {/* <div className="dark-screen"></div> */}
     </>;
 }
