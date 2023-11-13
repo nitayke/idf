@@ -7,24 +7,28 @@
     <meta name="theme-color" content="#000000" />
     <meta name="description" content='חידון על סמלי צה"ל' />
     <title>סמלי צה"ל</title>
+    <link rel="stylesheet" href="design.css" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
-      <div>
-        <h1>סמלי צה"ל</h1>
-        <div>
+      <div id="all-site">
+        <h1>חידון סמלי צה"ל הגדול</h1>
+        <div class="content-container">
+          <h2>בחרו את סוג החידון</h2>
           <!-- זה מה שרואים בהתחלה כאילו שבוחרים את הרמה -->
-          <button>קל</button>
-          <button>בינוני</button>
-          <button>חיל האוויר</button>
-          <button>חיל הים</button>
-          <button>סיכות (סיירות)</button>
-          <button>כל הסמלים</button>
+          <div class="levels-btns">
+            <button class="choose-level-btn"><p>קל</p></button>
+            <button class="choose-level-btn"><p>בינוני</p></button>
+            <button class="choose-level-btn"><p>חיל האוויר</p></button>
+            <button class="choose-level-btn"><p>חיל הים</p></button>
+            <button class="choose-level-btn"><p>סיכות</p></button>
+            <button class="choose-level-btn"><p>כל הסמלים</p></button>
+          </div>
         </div>
 
         <!-- זה אחרי שבוחרים רמה -->
-        <div>
+        <div class="content-container" hidden>
           <!-- זה בהתחלה -->
           <h1>טוען נתונים...</h1>
           <!-- זה אחרי שנגמרות 8 השאלות -->
@@ -46,6 +50,7 @@
             </div>
           </div>
         </div>
+        <footer>תוכן</footer>
       </div>
     </div>
   </body>
