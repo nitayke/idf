@@ -6,7 +6,7 @@ function shuffleArray(array) {
 }
 
 async function getQuestions(level) {
-    const url = `%PUBLIC_URL%/csv/${level}.csv`;
+    const url = `https://raw.githubusercontent.com/nitayke/idf/master/public/csv/${level}.csv`;
     const res = await fetch(url);
     const text = await res.text();
     const questionsArr = text.split(", ");
