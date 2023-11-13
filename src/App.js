@@ -15,7 +15,6 @@ export default function App() {
           <Quiz level={level} ></Quiz> :
           <LevelSelector onSelect={(l) => setLevel(l)}></LevelSelector>
       }
-      <footer>שבושון</footer>
     </div>
   );
 }
