@@ -1,23 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Heebo&display=swap");
+
 * {
   direction: rtl;
   box-sizing: border-box;
-  outline: none;
-  scroll-behavior: smooth;
-  font-family: "Assistant";
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+  font-family: "Heebo";
 }
 
 body {
-  width: 100%;
   margin: 0;
   background-color: #80a964;
 }
 
 h1 {
   text-align: center;
-  font-weight: 900;
+  font-weight: bold;
 }
 
 .content-container {
