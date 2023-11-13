@@ -48,32 +48,22 @@ h2 {
   height: 85%;
   display: grid;
   grid-template-columns: repeat(2, 0.7fr);
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .choose-level-btn {
-  outline: 0;
   border: 0;
   cursor: pointer;
   background-color: #fff;
   border-radius: 1rem;
-  padding: 8px 16px;
-  font-size: 7cqw;
-  font-weight: 700;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: contain;
   /* border: 2px solid #35f468; */
 }
 
-.choose-level-btn p {
-  color: black;
-  background: #35f468;
-  border-radius: 1rem;
-}
-
 .choose-level-btn:nth-child(1) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/images/חטיבת%20גולני.png);
+  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/eyal-images/%D7%A7%D7%9C.png);
 }
 .choose-level-btn:nth-child(2) {
   background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/images/מערך%20ההגנה%20האווירית.png);
