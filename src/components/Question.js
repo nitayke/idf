@@ -2,7 +2,7 @@ import { useState } from "react";
 import { shuffleArray } from "../util/fetchData";
 import Loader from "./Loader";
 
-export default function וQuestion({ options, onAnswerSelected }) {
+export default function Question({ options, onAnswerSelected, score }) {
     const [isLoading, setLoading] = useState(true);
     let shuffledOptions = [...options];
     shuffleArray(shuffledOptions);
@@ -17,13 +17,14 @@ export default function וQuestion({ options, onAnswerSelected }) {
             />
             {shuffledOptions.map((option, index) => (
                 <button
-                    className="btn"
+                    className="answer-btn"
                     key={index}
                     onClick={() => { onAnswerSelected(option); setLoading(true); }}
                 >
                     {option}
                 </button>
             ))}
+            <p>הניקוד שלך: {score}</p>
         </div>
     </>;
 }

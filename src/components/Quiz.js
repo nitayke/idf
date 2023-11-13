@@ -38,6 +38,7 @@ export default function Quiz({ level }) {
                 <Question
                     options={questions[currentQuestionIndex]}
                     onAnswerSelected={handleAnswerSelected}
+                    score={score}
                 />
             }
         </div>

@@ -7,7 +7,7 @@ export default function App() {
 
   return (
     <div>
-      <h1>חידון סמלי צה"ל הגדול</h1>
+      <h1>חידון סמלי צה"ל הגדול {level ? "(" + level + ")" : null}</h1>
       {
         level ?
           <Quiz level={level} ></Quiz> :
