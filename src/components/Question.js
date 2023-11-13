@@ -9,10 +9,9 @@ export default function Question({ options, onAnswerSelected }) {
         {isLoading ?
             <h1>טוען תמונה...</h1> : null
         }
-        <div>
+        <div style={{ display: isLoading ? "none" : "block" }}>
             <img
                 onLoad={() => setLoading(false)}
-                style={{ display: isLoading ? "none" : "block" }}
                 src={"https://raw.githubusercontent.com/nitayke/idf/master/public/images/" + options[0].replace(/"/g, "") + ".png"}
             />
             {shuffledOptions.map((option, index) => (
