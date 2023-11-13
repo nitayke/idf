@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content='חידון על סמלי צה"ל' />
+    <title>סמלי צה"ל</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <div>
+        <h1>סמלי צה"ל</h1>
+        <div>
+          <!-- זה מה שרואים בהתחלה כאילו שבוחרים את הרמה -->
+          <button>קל</button>
+          <button>בינוני</button>
+          <button>חיל האוויר</button>
+          <button>חיל הים</button>
+          <button>סיכות (סיירות)</button>
+          <button>כל הסמלים</button>
+        </div>
+
+        <!-- זה אחרי שבוחרים רמה -->
+        <div>
+          <!-- זה בהתחלה -->
+          <h1>טוען נתונים...</h1>
+          <!-- זה אחרי שנגמרות 8 השאלות -->
+          <div>הניקוד שלך: {score}/8</div>
+
+          <!-- זה לפני שנגמרות 8 השאלות -->
+          <div>
+            <h1>טוען תמונה...</h1>
+            <div>
+              <!-- זה אחרי שהתמונה נטענת -->
+              <img
+                src="https://raw.githubusercontent.com/nitayke/idf/master/public/images/אגף המודיעין.png"
+              />
+              <!-- דוגמה במיוחד בשבילך -->
+              <button>אגף המודיעין</button>
+              <button>אגף כוח אדם</button>
+              <button>אגף התקשוב והגנה בסב"ר</button>
+              <button>אגף המבצעים</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
