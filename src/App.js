@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import Quiz from "./components/Quiz";
 import LevelSelector from "./components/LevelSelector";
-import useBackButton from "./hooks/BackButton";
 
 export const QUESTIONS_COUNT = 14;
 
 export default function App() {
   const [level, setLevel] = useState("");
-  useBackButton(setLevel);
 
   return (
     <div>
