@@ -7,14 +7,12 @@ export default function App() {
 
   return (
     <div>
-      <h1>
-        סמלי צה"ל
-      </h1>
+      <h1>חידון סמלי צה"ל הגדול</h1>
       {
         level ?
           <Quiz level={level} ></Quiz> :
           <LevelSelector onSelect={(l) => setLevel(l)}></LevelSelector>
       }
-    </div >
+    </div>
   );
 }

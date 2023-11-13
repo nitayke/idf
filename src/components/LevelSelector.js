@@ -2,12 +2,13 @@ const levels = { "קל": "easy", "בינוני": "normal", "חיל האוויר"
 
 export default function LevelSelector({ onSelect }) {
     return (
-        <div>
-            {Object.keys(levels).map((title, index) => (
-                <button key={index} onClick={() => onSelect(levels[title])} >
-                    {title}
-                </button>
-            ))}
+        <div className="content-container">
+            <h2>בחרו את סוג החידון</h2>
+            <div className="levels-btns">
+                {Object.keys(levels).map((title, index) => (
+                    <button className="choose-level-btn" key={index} onClick={() => onSelect(levels[title])} ></button>
+                ))}
+            </div>
         </div>
     )
 }

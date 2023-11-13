@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import Question from './Question';
 import { getQuestions } from '../util/fetchData';
+import Loader from './Loader';
+import EndGame from './EndGame';
 
 export default function Quiz({ level }) {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -15,7 +17,7 @@ export default function Quiz({ level }) {
     }, []);
 
     if (!questions.length) {
-        return <h1>טוען נתונים...</h1>;
+        return <Loader text="טוען נתונים..."></Loader>;
     }
 
     const handleAnswerSelected = (option) => {
@@ -31,17 +33,13 @@ export default function Quiz({ level }) {
         }
     };
     return (
-        <div>
-            {showScore ? (
-                <div>
-                    הניקוד שלך: {score}/8
-                </div>
-            ) : (
+        <div className='content-container'>
+            {showScore ? <EndGame score={score}></EndGame> :
                 <Question
                     options={questions[currentQuestionIndex]}
                     onAnswerSelected={handleAnswerSelected}
                 />
-            )}
+            }
         </div>
     );
 }
