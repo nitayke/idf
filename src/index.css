@@ -51,22 +51,22 @@ h2 {
 }
 
 .choose-level-btn:nth-child(1) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/eyal-images/%D7%A7%D7%9C.png);
+  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%A7%D7%9C.png);
 }
 .choose-level-btn:nth-child(2) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/eyal-images/%D7%91%D7%99%D7%A0%D7%95%D7%A0%D7%99.png);
+  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%91%D7%99%D7%A0%D7%95%D7%A0%D7%99.png);
 }
 .choose-level-btn:nth-child(3) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/eyal-images/%D7%97%D7%99%D7%9C%20%D7%94%D7%90%D7%95%D7%95%D7%99%D7%A8.png);
+  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%97%D7%99%D7%9C%20%D7%94%D7%90%D7%95%D7%95%D7%99%D7%A8.png);
 }
 .choose-level-btn:nth-child(4) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/eyal-images/%D7%97%D7%99%D7%9C%20%D7%94%D7%99%D7%9D.png);
+  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%97%D7%99%D7%9C%20%D7%94%D7%99%D7%9D.png);
 }
 .choose-level-btn:nth-child(5) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/eyal-images/%D7%A1%D7%99%D7%9B%D7%95%D7%AA.png);
+  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%A1%D7%99%D7%9B%D7%95%D7%AA.png);
 }
 .choose-level-btn:nth-child(6) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/eyal-images/%D7%9B%D7%9C%20%D7%94%D7%A1%D7%9E%D7%9C%D7%99%D7%9D.png);
+  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%9B%D7%9C%20%D7%94%D7%A1%D7%9E%D7%9C%D7%99%D7%9D.png);
 }
 
 footer {
