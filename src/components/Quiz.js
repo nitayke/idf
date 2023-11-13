@@ -38,9 +38,10 @@ export default function Quiz({ level }) {
                 <Question
                     options={questions[currentQuestionIndex]}
                     onAnswerSelected={handleAnswerSelected}
-                    score={score}
                 />
             }
+            <p>שאלה {currentQuestionIndex + 1} מתוך 14</p>
+            <p>הניקוד שלך בינתיים: {score}</p>
         </div>
     );
 }

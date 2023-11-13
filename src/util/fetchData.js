@@ -1,18 +1,20 @@
-function shuffleArray(array) {
+import { QUESTIONS_COUNT } from "../App";
+
+export function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
 
-async function getQuestions(level) {
+export async function getQuestions(level) {
     const url = `https://raw.githubusercontent.com/nitayke/idf/master/public/csv/${level}.csv`;
     const res = await fetch(url);
     const text = await res.text();
     const questionsArr = text.split(", ");
     shuffleArray(questionsArr);
     let questions = [];
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < QUESTIONS_COUNT; i++) {
         let question = [questionsArr[i]];
         let tmp = [...questionsArr];
         tmp.splice(i, 1);
@@ -24,5 +26,3 @@ async function getQuestions(level) {
     }
     return questions;
 }
-
-export { shuffleArray, getQuestions };
