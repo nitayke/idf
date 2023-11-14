@@ -33,7 +33,7 @@ export default function Quiz({ level }) {
         }
     };
     return (
-        <div className='content-container'>
+        <div className='content--container'>
             {showScore ? <EndGame score={score}></EndGame> :
                 <Question
                     options={questions[currentQuestionIndex]}

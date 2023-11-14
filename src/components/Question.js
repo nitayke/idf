@@ -17,7 +17,7 @@ export default function Question({ options, onAnswerSelected }) {
             />
             {shuffledOptions.map((option, index) => (
                 <button
-                    className="answer-btn"
+                    className="answer__btn"
                     key={index}
                     onClick={() => { onAnswerSelected(option); setLoading(true); }}
                 >
