@@ -11,11 +11,10 @@
 :root {
   /* --background: #80a964; */
   --text: #fefefe;
-  --background: #384C31;
-  --primary: #161F14;
+  --background: #384c31;
+  --primary: #161f14;
   /* --secondary: #152211; */
   --accent: #849177;
-
 
   --fs-factor: 1.333;
   --fs-400: 1.25em;
@@ -62,64 +61,103 @@ h5 {
   font-size: var(--fs-500);
 }
 
-.content--container {
+/* header */
+.header {
+  direction: rtl;
+  color: var(--text);
+  padding: var(--padding-600);
+}
+
+.title {
+  max-width: 75svw;
+  line-height: 4rem;
+}
+
+.subtitle {
+  font-weight: 400;
+}
+
+.jet {
+  position: absolute;
+  width: clamp(8rem, 20svw, 20rem);
+  aspect-ratio: 1;
+  background-color: var(--text);
+  border-radius: 50%;
+  translate: -50% -50%;
+}
+
+.jet::after {
+  content: url("/public/svg/jet.svg");
+  position: absolute;
+  width: 50%;
+  inset: auto 0 0 auto;
+  rotate: 90deg;
+}
+
+/* levels */
+.levels {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  width: 90%;
-  padding: var(--padding-500);
-  border-radius: 2rem;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem 4rem;
+  padding-inline: var(--padding-900);
   margin-inline: auto;
+  margin-block: 8svw 10rem;
 }
 
-.content__title {
-  text-align: center;
-}
-
-.levels--btns {
+/* .levels {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
   justify-items: center;
   gap: 1rem;
   padding: 1rem;
-}
+} */
 
-.choose__level__btn {
-  width: 100%;
+.level {
+  position: relative;
+  min-width: 12rem;
   aspect-ratio: 1;
   border: 0;
-  border-radius: 1rem;
-  background-color: #fff;
+  background-color: transparent;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   cursor: pointer;
 }
 
-.choose__level__btn:nth-child(1) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%A7%D7%9C.png);
-}
-.choose__level__btn:nth-child(2) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%91%D7%99%D7%A0%D7%95%D7%A0%D7%99.png);
-}
-.choose__level__btn:nth-child(3) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%97%D7%99%D7%9C%20%D7%94%D7%90%D7%95%D7%95%D7%99%D7%A8.png);
-}
-.choose__level__btn:nth-child(4) {
-  background-image: url(https://raw.githubussercontent.com/nitayke/idf/master/public/start-menu-images/%D7%97%D7%99%D7%9C%20%D7%94%D7%99%D7%9D.png);
-}
-.choose__level__btn:nth-child(5) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%A1%D7%99%D7%9B%D7%95%D7%AA.png);
-}
-.choose__level__btn:nth-child(6) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%9B%D7%9C%20%D7%94%D7%A1%D7%9E%D7%9C%D7%99%D7%9D.png);
+.level::after {
+  content: attr(data-level);
+  position: absolute;
+  inset: -1rem;
+  top: auto;
+  background-color: var(--primary);
+  border-radius: 0 2rem 0 2rem;
+  padding: 0.5em;
+  color: var(--text);
+  font-size: var(--fs-500);
+  white-space: nowrap;
+  z-index: 1;
 }
 
-footer {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
+.level:nth-child(1) {
+  background-image: url("/public/level-images/קל.png");
+}
+.level:nth-child(2) {
+  background-image: url("/public/level-images/בינוני.png");
+}
+.level:nth-child(3) {
+  background-image: url("/public/level-images/חיל האוויר.png");
+}
+.level:nth-child(4) {
+  background-image: url("/public/level-images/חיל הים.png");
+}
+.level:nth-child(5) {
+  background-image: url("/public/level-images/סיכות (סיירות).png");
+}
+.level:nth-child(6) {
+  background-image: url("/public/level-images/כל הסמלים.png");
 }
 
 .after--game {
