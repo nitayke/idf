@@ -10,11 +10,11 @@
 
 :root {
   /* --background: #80a964; */
-  --text: #042801;
-  --background: #fafffa;
-  --primary: #48733a;
-  --secondary: #152211;
-  --accent: #202F13;
+  --text: #fefefe;
+  --background: #384C31;
+  --primary: #161F14;
+  /* --secondary: #152211; */
+  --accent: #849177;
 
 
   --fs-factor: 1.333;
