@@ -1,101 +1,244 @@
 @import url("https://fonts.googleapis.com/css?family=Heebo&display=swap");
 
 * {
-  direction: rtl;
+  /* direction: rtl; */
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   font-family: "Heebo";
 }
 
+:root {
+  /* --background: #80a964; */
+  --text: #fefefe;
+  --background: #384c31;
+  --primary: #161f14;
+  /* --secondary: #152211; */
+  --accent: #849177;
+
+  --fs-factor: 1.333;
+  --fs-400: 1.25em;
+  --fs-500: calc(var(--padding-400) * var(--fs-factor));
+  --fs-600: calc(var(--padding-500) * var(--fs-factor));
+  --fs-700: calc(var(--padding-600) * var(--fs-factor));
+  --fs-800: calc(var(--padding-700) * var(--fs-factor));
+  --fs-900: calc(var(--padding-800) * var(--fs-factor));
+
+  --padding-factor: 1.333;
+  --padding-400: 1.25em;
+  --padding-500: calc(var(--padding-400) * var(--padding-factor));
+  --padding-600: calc(var(--padding-500) * var(--padding-factor));
+  --padding-700: calc(var(--padding-600) * var(--padding-factor));
+  --padding-800: calc(var(--padding-700) * var(--padding-factor));
+  --padding-900: calc(var(--padding-800) * var(--padding-factor));
+}
+
 body {
-  margin: 0;
-  background-color: #80a964;
+  background-color: var(--background);
+}
+
+p {
+  font-size: var(--fs-400);
 }
 
 h1 {
-  text-align: center;
-  font-weight: bold;
-}
-
-.content-container {
-  position: absolute;
-  top: 74.88px;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 98%;
-  background-color: #fff;
-  border-radius: 2rem;
+  font-size: var(--fs-900);
 }
 
 h2 {
-  text-align: center;
-  color: #80a964;
+  font-size: var(--fs-800);
 }
 
-.levels-btns {
-  padding: 1rem;
-  height: 85%;
-  display: grid;
-  grid-template-columns: repeat(2, 0.7fr);
-  gap: 1rem;
+h3 {
+  font-size: var(--fs-700);
 }
 
-.choose-level-btn {
-  border: 0;
-  cursor: pointer;
-  background-color: #fff;
-  border-radius: 1rem;
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: contain;
+h4 {
+  font-size: var(--fs-600);
 }
 
-.choose-level-btn:nth-child(1) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%A7%D7%9C.png);
-}
-.choose-level-btn:nth-child(2) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%91%D7%99%D7%A0%D7%95%D7%A0%D7%99.png);
-}
-.choose-level-btn:nth-child(3) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%97%D7%99%D7%9C%20%D7%94%D7%90%D7%95%D7%95%D7%99%D7%A8.png);
-}
-.choose-level-btn:nth-child(4) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%97%D7%99%D7%9C%20%D7%94%D7%99%D7%9D.png);
-}
-.choose-level-btn:nth-child(5) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%A1%D7%99%D7%9B%D7%95%D7%AA.png);
-}
-.choose-level-btn:nth-child(6) {
-  background-image: url(https://raw.githubusercontent.com/nitayke/idf/master/public/start-menu-images/%D7%9B%D7%9C%20%D7%94%D7%A1%D7%9E%D7%9C%D7%99%D7%9D.png);
+h5 {
+  font-size: var(--fs-500);
 }
 
-footer {
+/* header */
+.header {
+  direction: rtl;
+  color: var(--text);
+  padding: 1.5rem var(--padding-600);
+  max-width: 90svw;
+  margin-left: auto;
+}
+
+.title {
+  min-width: 14rem;
+  font-size: clamp(2.5rem, 5vw, var(--fs-700));
+}
+
+.subtitle {
+  font-weight: 400;
+}
+
+.jet {
   position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
+  width: clamp(8rem, 20svw, 20rem);
+  aspect-ratio: 1;
+  background-color: var(--text);
+  border-radius: 50%;
+  translate: -50% -50%;
 }
 
-.after-game {
-  height: 85%;
+.jet::after {
+  content: url("/public/svg/jet.svg");
+  position: absolute;
+  width: 50%;
+  inset: auto 0 0 auto;
+  rotate: 90deg;
+}
+
+/* level selection */
+.levels {
+  --level-width: 4rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem 4rem;
+  padding-inline: var(--padding-900);
+  margin: 2vw auto 0;
+  min-width: calc(var(--level-width) * 2 + 4rem);
+}
+
+/* .levels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr));
+  justify-items: center;
+  gap: 4rem;
+  padding: 1rem;
+  padding-inline: var(--padding-900);
+  margin-inline: auto;
+} */
+
+.level {
+  position: relative;
+  /* width: 100%; */
+  width: 12rem;
+  aspect-ratio: 1;
+  border: 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+  transition: scale 200ms ease-in-out;
+}
+
+.level:hover {
+  scale: 1.025;
+}
+
+.level::after {
+  content: attr(data-level);
+  position: absolute;
+  inset: auto 0 0 0;
+  top: auto;
+  background-color: var(--primary);
+  border-radius: .5rem;
+  padding: 0.4em;
+  color: var(--text);
+  font-size: clamp(1rem, 3vw, var(--fs-500));
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.level:nth-child(1) {
+  background-image: url("/public/level-images/קל.png");
+}
+.level:nth-child(2) {
+  background-image: url("/public/level-images/בינוני.png");
+}
+.level:nth-child(3) {
+  background-image: url("/public/level-images/חיל האוויר.png");
+}
+.level:nth-child(4) {
+  background-image: url("/public/level-images/חיל הים.png");
+}
+.level:nth-child(5) {
+  background-image: url("/public/level-images/סיכות (סיירות).png");
+}
+.level:nth-child(6) {
+  background-image: url("/public/level-images/כל הסמלים.png");
+}
+
+/* game */
+hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255, 0.2);
+  width: 90%;
+  margin-left: auto;
+  margin-block: 1rem;
+}
+
+.game {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: fit-content;
+  margin-inline: auto;
+  gap: 3rem;
+}
+
+.logo {
+  width: 80vw;
+  max-width: clamp(12rem, 40svw, 15rem);
+  /* max-height: 30svh; */
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  padding-inline: var(--padding-400);
+  max-width: 95vw;
+}
+
+.answer {
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: var(--primary);
+  color: var(--text);
+  font-size: clamp(.5rem, 4vw, 1.5rem);
+  cursor: pointer;
+  transition: 75ms scale ease-in-out;
+}
+
+.game--data {
+  text-align: center;
+  color: var(--text);
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+.after--game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
   justify-content: space-between;
+  color: var(--text);
+  text-align: center;
 }
 
-.after-game h3 {
-  font-size: 1.5rem;
+.final__score {
+  font-size: var(--fs-500);
 }
 
-.after-game div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.after-game button {
-  background-color: #fbeee0;
+.after--game button {
+  /* background-color: #fbeee0;
   border: 2px solid #422800;
   border-radius: 30px;
   color: #422800;
@@ -108,39 +251,21 @@ footer {
   text-align: center;
   text-decoration: none;
   user-select: none;
-  -webkit-user-select: none;
+  -webkit-user-select: none; */
   touch-action: manipulation;
-}
-
-.game {
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.game img {
-  width: 150px;
-  margin-bottom: 2rem;
-}
-
-.answer-btn {
-  width: 80%;
-  font-size: 1.2rem;
-  color: #111;
-  background-color: #fff;
-  border: 2px solid #80a964;
-  border-radius: 4px;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  padding: 10px;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: var(--primary);
+  color: var(--text);
+  font-size: clamp(.75rem, 5vw, 1.5rem);
   cursor: pointer;
-  transition: 200ms all ease-in-out;
+  margin-top: 1rem;
 }
 
-.answer-btn:active {
-  transform: scale(98%);
+
+.answer:active {
+  scale: 95%;
 }
 
 .make-it-green {
@@ -156,7 +281,7 @@ footer {
 }
 
 /* loader */
-.loader-container {
+.loader--container {
   position: fixed;
   top: 0;
   left: 0;
@@ -170,7 +295,7 @@ footer {
   z-index: 999;
 }
 
-.loader-circle {
+.loader__circle {
   position: fixed;
   top: 25%;
   background-color: #80a964;
@@ -180,7 +305,7 @@ footer {
   height: 30vh;
 }
 
-.loader-line {
+.loader__line {
   position: fixed;
   top: 25%;
   z-index: 999;
@@ -191,7 +316,7 @@ footer {
   animation: spin 3s linear infinite;
 }
 
-.loader-clock {
+.loader__clock {
   position: relative;
   top: 0;
   left: 0;
@@ -206,7 +331,7 @@ footer {
   height: 15vh;
 }
 
-.loader-text {
+.loader__text {
   position: fixed;
   top: 60%;
   z-index: 999;
@@ -235,4 +360,56 @@ footer {
   z-index: 99;
   background: #000000af;
   transition: 500ms ease-in-out;
+}
+
+@media (width < 20rem) {
+  .jet {
+    display: none;
+  }
+}
+
+@media (width < 40rem) {
+  .header {
+    padding: .5rem 1rem;
+    margin: 0;
+    margin-left: auto;
+  }
+
+  .title {
+    font-size: var(--fs-500);
+  }
+
+  .subtitle {
+    font-size: var(--fs-400);
+  }
+
+  .levels {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    gap: 2rem;
+    padding-inline: 15vw;
+    margin-top: .5rem;
+  }
+
+  .level {
+    width: 100%;
+  }
+
+  .level::after {
+    padding-block: .4em;
+    font-size: clamp(.75rem, 3.5svw, var(--fs-500));
+  }
+
+  .game {
+    gap: 1.5rem
+  }
+
+  .answer {
+    /* font-size: .7rem; */
+    padding: .75em 1.5em;
+  }
+
+  .game--data {
+    font-size: .75rem;
+  }
 }

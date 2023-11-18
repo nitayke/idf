@@ -33,15 +33,23 @@ export default function Quiz({ level }) {
         }
     };
     return (
-        <div className='content-container'>
-            {showScore ? <EndGame score={score}></EndGame> :
+        <div className="game">
+            {showScore ? 
+                null
+                :
+                <div className="game--data">
+                    <p>שאלה {currentQuestionIndex + 1} מתוך 14</p>
+                    <p>הניקוד שלך בינתיים: {score}</p>
+                </div>
+            }
+            {showScore ?
+                <EndGame score={score}></EndGame>
+                :
                 <Question
                     options={questions[currentQuestionIndex]}
                     onAnswerSelected={handleAnswerSelected}
                 />
             }
-            <p>שאלה {currentQuestionIndex + 1} מתוך 14</p>
-            <p>הניקוד שלך בינתיים: {score}</p>
         </div>
     );
 }
