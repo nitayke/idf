@@ -376,6 +376,14 @@ hr {
   transition: 500ms ease-in-out;
 }
 
+.creators {
+  /* position: absolute; */
+  font-size: clamp(.5rem, 4vw, 1.5rem);
+  color: var(--text);
+  right: .5rem;
+  bottom: .5rem;
+}
+
 @media (width < 20rem) {
   .jet {
     display: none;
@@ -402,7 +410,8 @@ hr {
     grid-template-columns: repeat(2, 50%);
     gap: 2rem;
     padding-inline: 15vw;
-    margin-top: .5rem;
+    margin-block: .5rem;
+    margin-bottom: 5rem;
   }
 
   .level {
