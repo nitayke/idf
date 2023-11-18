@@ -15,13 +15,29 @@ export default function App() {
         <h5 className="subtitle">
           {level ? "חידון " + level : "בחר/י קטגורית סמלים:"}
         </h5>
-        <hr></hr>
+        {level ?
+          <button className="back__button"
+          onClick={() => setLevel("")}>
+              חזור</button>
+          :
+          null
+        }
+        <hr />
+        {level ? 
+          null
+          :
+          <p className="creators">
+            יוצרים: אייל הלמון, איתי נדלר ונתאי קסנר
+          </p>
+        }
       </header>
 
       {level ? (
         <Quiz level={level} setLevel={setLevel}></Quiz>
       ) : (
-        <LevelSelector onSelect={(l) => setLevel(l)}></LevelSelector>
+        <>
+          <LevelSelector onSelect={(l) => setLevel(l)}></LevelSelector>
+        </>
       )}
     </>
   );

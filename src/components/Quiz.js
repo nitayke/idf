@@ -36,13 +36,6 @@ export default function Quiz({ level, setLevel }) {
     };
     return (
         <div className="game">
-            {showScore ?
-                null
-                :
-                <button className="back__button"
-                onClick={() => setLevel("")}>
-                    חזור</button>
-            }
             {showScore ? 
                 null
                 :
