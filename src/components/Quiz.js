@@ -50,7 +50,7 @@ export default function Quiz({ level, setLevel }) {
                 </div>
             }
             {showScore ?
-                <EndGame score={score}></EndGame>
+                <EndGame score={score} setLevel={setLevel}></EndGame>
                 :
                 <>
                     {questions.map((question, index) => {

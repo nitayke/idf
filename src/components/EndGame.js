@@ -1,11 +1,13 @@
 import { QUESTIONS_COUNT } from "../App";
 
-export default function EndGame({ score }) {
+export default function EndGame({ score, setLevel }) {
     return(
         <div className="after--game">
             <div className="new--game">
                 <h3 className="final__score">הניקוד שלך: {score}/{QUESTIONS_COUNT}</h3>
-                <button className="new__game">משחק חדש</button>
+                <button className="new__game"
+                    onClick={() => setLevel("")}
+                >משחק חדש</button>
             </div>
             <div className="share">
                 <p>?אהבת</p>
