@@ -1,17 +1,12 @@
 import { useState } from "react";
 import { shuffleArray } from "../util/fetchData";
-// import Loader from "./Loader";
 
 export default function Question({ options, onAnswerSelected, currentQuestionIndex, setCurrentQuestionIndex, myIndex, isCorrect }) {
-    // const [isLoading, setLoading] = useState(true);
     const [didAnswer, setDidAnswer] = useState(false);
     let shuffledOptions = [...options];
     shuffleArray(shuffledOptions);
     return (
         <>
-            {/* {isLoading ?
-                <Loader text="טוען תמונה..."></Loader> : null
-            } */}
             <div className="game" style={{ display: myIndex == currentQuestionIndex ? "flex" : "none" }}>
                 <img
                     className="logo"
