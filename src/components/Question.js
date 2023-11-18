@@ -1,20 +1,19 @@
 import { useState } from "react";
 import { shuffleArray } from "../util/fetchData";
-import Loader from "./Loader";
+// import Loader from "./Loader";
 
-export default function Question({ options, onAnswerSelected }) {
-    const [isLoading, setLoading] = useState(true);
+export default function Question({ options, onAnswerSelected, currentQuestionIndex, myIndex }) {
+    // const [isLoading, setLoading] = useState(true);
     let shuffledOptions = [...options];
     shuffleArray(shuffledOptions);
     return (
         <>
-            {isLoading ?
+            {/* {isLoading ?
                 <Loader text="טוען תמונה..."></Loader> : null
-            }
-            <div className="game" style={{ display: isLoading ? "none" : "flex" }}>
+            } */}
+            <div className="game" style={{ display: myIndex == currentQuestionIndex ? "flex" : "none" }}>
                 <img
                     className="logo"
-                    onLoad={() => setLoading(false)}
                     src={"https://raw.githubusercontent.com/nitayke/idf/master/public/images/" + options[0].replace(/"/g, "") + ".png"}
                 />
                 <div className="answers">
@@ -22,7 +21,7 @@ export default function Question({ options, onAnswerSelected }) {
                         <button
                             className="answer"
                             key={index}
-                            onClick={() => { onAnswerSelected(option); setLoading(true); }}
+                            onClick={() => { onAnswerSelected(option)}}
                         >
                             {option}
                         </button>

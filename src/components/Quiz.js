@@ -34,9 +34,13 @@ export default function Quiz({ level, setLevel }) {
     };
     return (
         <div className="game">
-            <button className="back__button"
-            onClick={() => setLevel("")}>
-                חזור</button>
+            {showScore ?
+                null
+                :
+                <button className="back__button"
+                onClick={() => setLevel("")}>
+                    חזור</button>
+            }
             {showScore ? 
                 null
                 :
@@ -48,10 +52,18 @@ export default function Quiz({ level, setLevel }) {
             {showScore ?
                 <EndGame score={score}></EndGame>
                 :
-                <Question
-                    options={questions[currentQuestionIndex]}
-                    onAnswerSelected={handleAnswerSelected}
-                />
+                <>
+                    {questions.map((question, index) => {
+                        return (
+                            <Question
+                                myIndex={index}
+                                currentQuestionIndex={currentQuestionIndex}
+                                options={question}
+                                onAnswerSelected={handleAnswerSelected}
+                            />
+                        )
+                    })}
+                </>
             }
         </div>
     );
