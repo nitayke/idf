@@ -9,6 +9,7 @@ export default function Quiz({ level, setLevel }) {
     const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
     const [questions, setQuestions] = useState([]);
+    const [isCorrect, setIsCorrect] = useState(false);
 
     useEffect(() => {
         (async function () {
@@ -22,13 +23,14 @@ export default function Quiz({ level, setLevel }) {
 
     const handleAnswerSelected = (option) => {
         if (option === questions[currentQuestionIndex][0]) {
+            setIsCorrect(true);
             setScore(score + 1);
+        } else {
+            setIsCorrect(false);
         }
 
         const nextQuestionIndex = currentQuestionIndex + 1;
-        if (nextQuestionIndex < questions.length) {
-            setCurrentQuestionIndex(nextQuestionIndex);
-        } else {
+        if (nextQuestionIndex >= questions.length) {
             setShowScore(true);
         }
     };
@@ -56,8 +58,10 @@ export default function Quiz({ level, setLevel }) {
                     {questions.map((question, index) => {
                         return (
                             <Question
+                                isCorrect={isCorrect}
                                 myIndex={index}
                                 currentQuestionIndex={currentQuestionIndex}
+                                setCurrentQuestionIndex={setCurrentQuestionIndex}
                                 options={question}
                                 onAnswerSelected={handleAnswerSelected}
                             />

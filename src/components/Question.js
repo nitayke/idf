@@ -2,8 +2,9 @@ import { useState } from "react";
 import { shuffleArray } from "../util/fetchData";
 // import Loader from "./Loader";
 
-export default function Question({ options, onAnswerSelected, currentQuestionIndex, myIndex }) {
+export default function Question({ options, onAnswerSelected, currentQuestionIndex, setCurrentQuestionIndex, myIndex, isCorrect }) {
     // const [isLoading, setLoading] = useState(true);
+    const [didAnswer, setDidAnswer] = useState(false);
     let shuffledOptions = [...options];
     shuffleArray(shuffledOptions);
     return (
@@ -17,15 +18,34 @@ export default function Question({ options, onAnswerSelected, currentQuestionInd
                     src={"https://raw.githubusercontent.com/nitayke/idf/master/public/images/" + options[0].replace(/"/g, "") + ".png"}
                 />
                 <div className="answers">
-                    {shuffledOptions.map((option, index) => (
+                    {didAnswer ?
                         <button
+                            style={{gridColumn: "span 2"}}
                             className="answer"
-                            key={index}
-                            onClick={() => { onAnswerSelected(option)}}
+                            onClick={() => {
+                                setDidAnswer(false);
+                                setCurrentQuestionIndex(() => currentQuestionIndex + 1)
+                            }}
                         >
-                            {option}
+                        {isCorrect ? "צדקת!" : "טעית!"} לחץ לשאלה הבאה
                         </button>
-                    ))}
+                        :
+                        <>
+                            {shuffledOptions.map((option, index) => (
+                                <button
+                                    className="answer"
+                                    key={index}
+                                    onClick={() => {
+                                        setDidAnswer(true);
+                                        onAnswerSelected(option)
+                                    }}
+                                >
+                                    {option}
+                                </button>
+                            ))}
+                        </>
+                    }
+                    
                 </div>
             </div>
         </>
