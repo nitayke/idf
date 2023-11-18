@@ -59,6 +59,7 @@ h5 {
 
 /* header */
 .header {
+  position: relative;
   direction: rtl;
   color: var(--text);
   padding: 1.5rem var(--padding-600);
@@ -72,8 +73,22 @@ h5 {
 }
 
 .subtitle {
+  display: inline;
   font-weight: 400;
+  margin-left: 1.5rem;
 }
+
+.back__button {
+  display: inline;
+  padding: .5rem 2rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: var(--primary);
+  color: var(--text);
+  font-size: var(--fs-400);
+  cursor: pointer;
+}
+
 
 .jet {
   position: absolute;
@@ -166,7 +181,6 @@ hr {
 }
 
 .game {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -203,19 +217,6 @@ hr {
 .game--data {
   text-align: center;
   color: var(--text);
-}
-
-.back__button {
-  position: absolute;
-  top: 1rem;
-  right: 0;
-  padding: .5rem 2rem;
-  border-radius: 2rem;
-  border: none;
-  background-color: var(--primary);
-  color: var(--text);
-  font-size: clamp(.5rem, 4vw, 1.5rem);
-  cursor: pointer;
 }
 
 .after--game {
@@ -383,7 +384,6 @@ hr {
   }
 
   .answer {
-    /* font-size: .7rem; */
     padding: .75em 1.5em;
   }
 

@@ -15,6 +15,13 @@ export default function App() {
         <h5 className="subtitle">
           {level ? "חידון " + level : "בחר/י קטגורית סמלים:"}
         </h5>
+        {level ?
+          <button className="back__button"
+          onClick={() => setLevel("")}>
+              חזור</button>
+          :
+          null
+        }
         <hr />
         {level ? 
           null
