@@ -4,7 +4,7 @@ import { getQuestions } from '../util/fetchData';
 import Loader from './Loader';
 import EndGame from './EndGame';
 
-export default function Quiz({ level }) {
+export default function Quiz({ level, setLevel }) {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
@@ -34,6 +34,9 @@ export default function Quiz({ level }) {
     };
     return (
         <div className="game">
+            <button className="back__button"
+            onClick={() => setLevel("")}>
+                חזור</button>
             {showScore ? 
                 null
                 :
