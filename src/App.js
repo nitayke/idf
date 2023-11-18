@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Quiz from "./components/Quiz";
 import LevelSelector from "./components/LevelSelector";
 

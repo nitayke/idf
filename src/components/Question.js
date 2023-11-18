@@ -7,7 +7,7 @@ export default function Question({ options, onAnswerSelected, currentQuestionInd
     shuffleArray(shuffledOptions);
     return (
         <>
-            <div className="game" style={{ display: myIndex == currentQuestionIndex ? "flex" : "none" }}>
+            <div className="game" style={{ display: (myIndex === currentQuestionIndex ? "flex" : "none") }}>
                 <img
                     className="logo"
                     src={"https://raw.githubusercontent.com/nitayke/idf/master/public/images/" + options[0].replace(/"/g, "") + ".png"}
@@ -15,14 +15,14 @@ export default function Question({ options, onAnswerSelected, currentQuestionInd
                 <div className="answers">
                     {didAnswer ?
                         <button
-                            style={{gridColumn: "span 2"}}
+                            style={{ gridColumn: "span 2" }}
                             className="answer"
                             onClick={() => {
                                 setDidAnswer(false);
                                 setCurrentQuestionIndex(() => currentQuestionIndex + 1)
                             }}
                         >
-                        {isCorrect ? "צדקת!" : "טעית!"} לחץ לשאלה הבאה
+                            {isCorrect ? "צדקת!" : "טעית!"} לחץ לשאלה הבאה
                         </button>
                         :
                         <>
@@ -40,7 +40,7 @@ export default function Question({ options, onAnswerSelected, currentQuestionInd
                             ))}
                         </>
                     }
-                    
+
                 </div>
             </div>
         </>
