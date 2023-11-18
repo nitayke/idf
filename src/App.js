@@ -19,7 +19,7 @@ export default function App() {
       </header>
 
       {level ? (
-        <Quiz level={level}></Quiz>
+        <Quiz level={level} setLevel={setLevel}></Quiz>
       ) : (
         <LevelSelector onSelect={(l) => setLevel(l)}></LevelSelector>
       )}
