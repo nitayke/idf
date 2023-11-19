@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/idf/static/css/main.6fdbf129.css",
-    "main.js": "/idf/static/js/main.6629d333.js",
+    "main.css": "/idf/static/css/main.102d44aa.css",
+    "main.js": "/idf/static/js/main.819b720e.js",
     "static/media/חיל האוויר.png": "/idf/static/media/חיל האוויר.d5eab98c338a023f71da.png",
     "static/media/בינוני.png": "/idf/static/media/בינוני.641c42fc3835fa5cb878.png",
     "static/media/כל הסמלים.png": "/idf/static/media/כל הסמלים.dc64f596b82300d6c78d.png",
@@ -10,11 +10,11 @@
     "static/media/קל.png": "/idf/static/media/קל.d0c9f7e52eed9d714cf2.png",
     "static/media/jet.svg": "/idf/static/media/jet.e99b9b3ad299cfd7560d.svg",
     "index.html": "/idf/index.html",
-    "main.6fdbf129.css.map": "/idf/static/css/main.6fdbf129.css.map",
-    "main.6629d333.js.map": "/idf/static/js/main.6629d333.js.map"
+    "main.102d44aa.css.map": "/idf/static/css/main.102d44aa.css.map",
+    "main.819b720e.js.map": "/idf/static/js/main.819b720e.js.map"
   },
   "entrypoints": [
-    "static/css/main.6fdbf129.css",
-    "static/js/main.6629d333.js"
+    "static/css/main.102d44aa.css",
+    "static/js/main.819b720e.js"
   ]
 }
