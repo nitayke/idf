@@ -213,6 +213,13 @@ hr {
   transition: 75ms scale ease-in-out;
 }
 
+.red {
+  border: red 4px solid;
+}
+.green {
+  border: green 4px solid;
+}
+
 .game--data {
   text-align: center;
   color: var(--text);
