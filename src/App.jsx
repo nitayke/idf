@@ -13,7 +13,7 @@ export default function App() {
       <header className="header">
         <h3 className="title">חידון סמלי צה"ל הגדול</h3>
         <h5 className="subtitle">
-          {level ? "חידון " + level : "בחר/י קטגורית סמלים:"}
+          {level ? "חידון " + level : "בחר/י קטגוריית סמלים:"}
         </h5>
         {level ? (
           <button className="back__button" onClick={() => setLevel("")}>

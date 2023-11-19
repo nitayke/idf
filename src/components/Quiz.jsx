@@ -9,6 +9,7 @@ export default function Quiz({ level, setLevel }) {
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [questions, setQuestions] = useState([]);
+  const [loaded, setLoaded] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
 
   useEffect(() => {
@@ -16,8 +17,6 @@ export default function Quiz({ level, setLevel }) {
       setQuestions(await getQuestions(level));
     })();
   }, []);
-
-  if (!questions.length) return <Loader text="טוען נתונים..."></Loader>;
 
   const handleAnswerSelected = (option) => {
     if (option === questions[currentQuestionIndex][0]) {
@@ -32,20 +31,20 @@ export default function Quiz({ level, setLevel }) {
       setShowScore(true);
     }
   };
-  return (
-    <div className="game">
-      {showScore ? null : (
-        <div className="game--data">
-          <p>שאלה {currentQuestionIndex + 1} מתוך 14</p>
-          <p>הניקוד שלך בינתיים: {score}</p>
-        </div>
-      )}
-      {showScore ? (
-        <EndGame score={score} setLevel={setLevel} level={level}></EndGame>
-      ) : (
-        <>
-          {questions.map((question, index) => {
-            return (
+  return questions.length ? (
+    <>
+      {loaded ? null : <Loader text={"טוען תמונה..."}></Loader>}
+
+      <div className="game" style={{ display: loaded ? "flex" : "none" }}>
+        {showScore ? (
+          <EndGame score={score} setLevel={setLevel} level={level}></EndGame>
+        ) : (
+          <>
+            <div className="game--data">
+              <p>שאלה {currentQuestionIndex + 1} מתוך 14</p>
+              <p>הניקוד שלך בינתיים: {score}</p>
+            </div>
+            {questions.map((question, index) => (
               <Question
                 isCorrect={isCorrect}
                 myIndex={index}
@@ -53,11 +52,15 @@ export default function Quiz({ level, setLevel }) {
                 setCurrentQuestionIndex={setCurrentQuestionIndex}
                 options={question}
                 onAnswerSelected={handleAnswerSelected}
+                loaded={loaded}
+                setLoaded={setLoaded}
               />
-            );
-          })}
-        </>
-      )}
-    </div>
+            ))}
+          </>
+        )}
+      </div>
+    </>
+  ) : (
+    <Loader text={"טוען נתונים..."}></Loader>
   );
 }
