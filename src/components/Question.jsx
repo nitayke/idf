@@ -1,19 +1,21 @@
-import { useState } from "react";
-import { shuffleArray } from "../util/fetchData";
+import { useEffect, useState } from "react";
+import { shuffledArray } from "../util/fetchData";
 
 export default function Question({
   options,
   onAnswerSelected,
   currentQuestionIndex,
-  setCurrentQuestionIndex,
   myIndex,
-  isCorrect,
+  nextQuestion,
   loaded,
   setLoaded,
 }) {
-  const [didAnswer, setDidAnswer] = useState(false);
-  let shuffledOptions = [...options];
-  shuffleArray(shuffledOptions);
+  const [answered, setAnswered] = useState("");
+  const [shuffledOptions, setShuffled] = useState([...options]);
+  let correct = options[0];
+  useEffect(() => {
+    setShuffled(shuffledArray(shuffledOptions));
+  }, []);
 
   return (
     <>
@@ -35,33 +37,33 @@ export default function Question({
           }
         />
         <div className="answers">
-          {didAnswer ? (
+          {shuffledOptions.map((option, index) => (
             <button
-              style={{ gridColumn: "span 2" }}
-              className="answer"
+              className={
+                "answer " +
+                (answered
+                  ? correct === option
+                    ? "green"
+                    : answered === option
+                    ? "red"
+                    : ""
+                  : "")
+              }
+              key={index}
               onClick={() => {
-                setDidAnswer(false);
-                setCurrentQuestionIndex(() => currentQuestionIndex + 1);
+                if (answered) return;
+                setAnswered(option);
+                onAnswerSelected(option);
               }}
             >
-              {isCorrect ? "צדקת!" : "טעית!"} לחץ לשאלה הבאה
+              {option}
             </button>
-          ) : (
-            <>
-              {shuffledOptions.map((option, index) => (
-                <button
-                  className="answer"
-                  key={index}
-                  onClick={() => {
-                    setDidAnswer(true);
-                    onAnswerSelected(option);
-                  }}
-                >
-                  {option}
-                </button>
-              ))}
-            </>
-          )}
+          ))}
+          {answered ? (
+            <button className="back__button" onClick={nextQuestion}>
+              לשאלה הבאה
+            </button>
+          ) : null}
         </div>
       </div>
     </>

@@ -10,7 +10,6 @@ export default function Quiz({ level, setLevel }) {
   const [showScore, setShowScore] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [loaded, setLoaded] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
 
   useEffect(() => {
     (async function () {
@@ -20,10 +19,7 @@ export default function Quiz({ level, setLevel }) {
 
   const handleAnswerSelected = (option) => {
     if (option === questions[currentQuestionIndex][0]) {
-      setIsCorrect(true);
       setScore(score + 1);
-    } else {
-      setIsCorrect(false);
     }
 
     const nextQuestionIndex = currentQuestionIndex + 1;
@@ -31,6 +27,11 @@ export default function Quiz({ level, setLevel }) {
       setShowScore(true);
     }
   };
+
+  function nextQuestion() {
+    setCurrentQuestionIndex(currentQuestionIndex + 1);
+  }
+
   return questions.length ? (
     <>
       {loaded ? null : <Loader text={"טוען תמונה..."}></Loader>}
@@ -46,10 +47,9 @@ export default function Quiz({ level, setLevel }) {
             </div>
             {questions.map((question, index) => (
               <Question
-                isCorrect={isCorrect}
                 myIndex={index}
                 currentQuestionIndex={currentQuestionIndex}
-                setCurrentQuestionIndex={setCurrentQuestionIndex}
+                nextQuestion={nextQuestion}
                 options={question}
                 onAnswerSelected={handleAnswerSelected}
                 loaded={loaded}
