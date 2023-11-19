@@ -17,18 +17,10 @@ export default function App() {
         </h5>
         {level ?
           <button className="back__button"
-          onClick={() => setLevel("")}>
-              חזור</button>
+            onClick={() => setLevel("")}>
+            חזור</button>
           :
           null
-        }
-        <hr />
-        {level ? 
-          null
-          :
-          <p className="creators">
-            יוצרים: אייל הלמון, איתי נדלר ונתאי קסנר
-          </p>
         }
       </header>
 
@@ -37,6 +29,13 @@ export default function App() {
       ) : (
         <>
           <LevelSelector onSelect={(l) => setLevel(l)}></LevelSelector>
+          <div className="cont">
+            <p className="creators">
+              יוצרים: אייל הלמון, איתי נדלר ונתאי קסנר
+            </p>
+            <div className="creators">מונה כניסות:</div>
+            <img className="counter" src="https://counter8.optistats.ovh/private/freecounterstat.php?c=5c2fsfr6ec2mkfc15xub5twwxtjer8u2" />
+          </div>
         </>
       )}
     </>
