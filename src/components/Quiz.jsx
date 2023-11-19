@@ -36,7 +36,7 @@ export default function Quiz({ level, setLevel }) {
     };
     return (
         <div className="game">
-            {showScore ? 
+            {showScore ?
                 null
                 :
                 <div className="game--data">
@@ -45,7 +45,7 @@ export default function Quiz({ level, setLevel }) {
                 </div>
             }
             {showScore ?
-                <EndGame score={score} setLevel={setLevel}></EndGame>
+                <EndGame score={score} setLevel={setLevel} level={level}></EndGame>
                 :
                 <>
                     {questions.map((question, index) => {

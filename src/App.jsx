@@ -15,13 +15,11 @@ export default function App() {
         <h5 className="subtitle">
           {level ? "חידון " + level : "בחר/י קטגורית סמלים:"}
         </h5>
-        {level ?
-          <button className="back__button"
-            onClick={() => setLevel("")}>
-            חזור</button>
-          :
-          null
-        }
+        {level ? (
+          <button className="back__button" onClick={() => setLevel("")}>
+            חזור
+          </button>
+        ) : null}
       </header>
 
       {level ? (
@@ -30,11 +28,12 @@ export default function App() {
         <>
           <LevelSelector onSelect={(l) => setLevel(l)}></LevelSelector>
           <div className="cont">
-            <p className="creators">
-              יוצרים: אייל הלמון, איתי נדלר ונתאי קסנר
-            </p>
+            <p className="creators">יוצרים: אייל הלמון, איתי נדלר ונתאי קסנר</p>
             <div className="creators">מונה כניסות:</div>
-            <img className="counter" src="https://counter8.optistats.ovh/private/freecounterstat.php?c=5c2fsfr6ec2mkfc15xub5twwxtjer8u2" />
+            <img
+              className="counter"
+              src="https://counter8.optistats.ovh/private/freecounterstat.php?c=5c2fsfr6ec2mkfc15xub5twwxtjer8u2"
+            />
           </div>
         </>
       )}

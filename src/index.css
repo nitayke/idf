@@ -99,7 +99,7 @@ h5 {
 }
 
 .jet::after {
-  content: url("/public/svg/jet.svg");
+  content: url("/svg/jet.svg");
   position: absolute;
   width: 50%;
   inset: auto 0 0 auto;
@@ -152,22 +152,22 @@ h5 {
 }
 
 .level:nth-child(1) {
-  background-image: url("/public/level-images/קל.png");
+  background-image: url("/level-images/קל.png");
 }
 .level:nth-child(2) {
-  background-image: url("/public/level-images/בינוני.png");
+  background-image: url("/level-images/בינוני.png");
 }
 .level:nth-child(3) {
-  background-image: url("/public/level-images/חיל האוויר.png");
+  background-image: url("/level-images/חיל האוויר.png");
 }
 .level:nth-child(4) {
-  background-image: url("/public/level-images/חיל הים.png");
+  background-image: url("/level-images/חיל הים.png");
 }
 .level:nth-child(5) {
-  background-image: url("/public/level-images/סיכות (סיירות).png");
+  background-image: url("/level-images/סיכות (סיירות).png");
 }
 .level:nth-child(6) {
-  background-image: url("/public/level-images/כל הסמלים.png");
+  background-image: url("/level-images/כל הסמלים.png");
 }
 
 /* game */
