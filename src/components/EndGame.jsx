@@ -2,8 +2,8 @@ import { QUESTIONS_COUNT } from "../App";
 
 export default function EndGame({ score, setLevel, level }) {
   function share() {
-    let txt = `קיבלתי ${score}/${QUESTIONS_COUNT} בחידון סמלי צה"ל בקטגוריה ${level}%0A!`;
-    txt += "*כנסו לחידון:*";
+    let txt = `קיבלתי ${score}/${QUESTIONS_COUNT} בחידון סמלי צה"ל בקטגוריה ${level}!%0A`;
+    txt += "*כנסו לחידון:*%0A";
     txt += "https://nitayke.github.io/idf%0A";
     window.open("https://wa.me/?text=" + txt);
   }
